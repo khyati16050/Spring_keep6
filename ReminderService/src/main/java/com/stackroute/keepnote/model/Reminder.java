@@ -1,11 +1,15 @@
 package com.stackroute.keepnote.model;
 
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
 import java.util.Date;
 
 /*
  * Please note that this class is annotated with @Document annotation
  * @Document identifies a domain object to be persisted to MongoDB.
  *  */
+@Document
 public class Reminder {
 
 	/*
@@ -18,53 +22,74 @@ public class Reminder {
 	 * be accepted from the user but should be always initialized with the system
 	 * date.
 	 */
+	@Id
+	private String reminderId;
+	private String reminderName;
+	private String reminderDescription;
+	private String reminderType;
+	private String reminderCreatedBy;
+	private Date reminderCreationDate;
 
-	    public String getReminderId() {
-	        return null;
-	    }
+	public Reminder()
+	{
 
-	    public void setReminderId(String reminderId) {
-	        
-	    }
+	}
+	public Reminder(String id,String name,String des,String type,String created,Date date)
+	{
+		this.reminderId =id;
+		this.reminderName = name;
+		this.reminderDescription = des;
+		this.reminderType = type;
+		this.reminderCreatedBy = created;
+		this.reminderCreationDate = date;
+	}
 
-	    public String getReminderName() {
-	        return null;
-	    }
+	public String getReminderId() {
+		return this.reminderId;
+	}
 
-	    public void setReminderName(String reminderName) {
-	      
-	    }
+	public void setReminderId(String reminderId) {
+		this.reminderId = reminderId;
+	}
 
-	    public String getReminderDescription() {
-	        return null;
-	    }
+	public String getReminderName() {
+		return this.reminderName;
+	}
 
-	    public void setReminderDescription(String reminderDescription) {
-	        
-	    }
+	public void setReminderName(String reminderName) {
+		this.reminderName = reminderName;
+	}
 
-	    public String getReminderType() {
-	        return null;
-	    }
+	public String getReminderDescription() {
+		return this.reminderDescription;
+	}
 
-	    public void setReminderType(String reminderType) {
-	       
-	    }
+	public void setReminderDescription(String reminderDescription) {
+		this.reminderDescription = reminderDescription;
+	}
 
-	    public String getReminderCreatedBy() {
-	        return null;
-	    }
+	public String getReminderType() {
+		return this.reminderType;
+	}
 
-	    public void setReminderCreatedBy(String reminderCreatedBy) {
-	      
-	    }
+	public void setReminderType(String reminderType) {
+		this.reminderType = reminderType;
+	}
 
-	    public Date getReminderCreationDate() {
-	        return null;
-	    }
+	public String getReminderCreatedBy() {
+		return this.reminderCreatedBy;
+	}
 
-	    public void setReminderCreationDate(Date reminderCreationDate) {
-	       
-	    }
+	public void setReminderCreatedBy(String reminderCreatedBy) {
+		this.reminderCreatedBy = reminderCreatedBy;
+	}
+
+	public Date getReminderCreationDate() {
+		return this.reminderCreationDate;
+	}
+
+	public void setReminderCreationDate(Date reminderCreationDate) {
+		this.reminderCreationDate = reminderCreationDate;
+	}
 
 }

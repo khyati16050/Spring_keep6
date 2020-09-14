@@ -2,6 +2,7 @@ package com.stackroute.keepnote;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.context.annotation.Bean;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
@@ -14,6 +15,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
  */
 
 @SpringBootApplication
+@EnableDiscoveryClient
 public class UserAuthenticationServiceApplication {
 
 
@@ -22,10 +24,10 @@ public class UserAuthenticationServiceApplication {
      * and add addCorsMappings(CorsRegistry registry) method to set addMapping and allowedOrigins
 	 */
 	
-	@Bean
-    public WebMvcConfigurer corsConfigurer() {
-        return null;
-    }
+//	@Bean
+//    public WebMvcConfigurer corsConfigurer() {
+//        return null;
+//    }
 
 	/*
 	 * 

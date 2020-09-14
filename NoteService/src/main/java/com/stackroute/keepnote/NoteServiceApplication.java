@@ -19,6 +19,8 @@ import com.stackroute.keepnote.jwtfilter.JwtFilter;
  */
 
 @SpringBootApplication
+@EnableAspectJAutoProxy
+@EnableDiscoveryClient
 public class NoteServiceApplication {
 
 	/*
@@ -27,19 +29,24 @@ public class NoteServiceApplication {
 	 * Also specifies the Url patterns for registration bean.
 	 */
 	@Bean
-	public FilterRegistrationBean jwtFilter() {
-		return null;
+	public FilterRegistrationBean jwtFilter()
+	{
+		FilterRegistrationBean filterRegistrationBean = new FilterRegistrationBean();
+		filterRegistrationBean.setFilter(new JwtFilter());
+		filterRegistrationBean.addUrlPatterns("/api/v1/*");
+		return filterRegistrationBean;
+
 	}
 
 	/*
 	 * Define the bean for WebMvcConfigurer. Create a new WebMvcConfigurerAdapter object 
      * and add addCorsMappings(CorsRegistry registry) method to set addMapping and allowedOrigins
 	 */
-	
-	@Bean
-    public WebMvcConfigurer corsConfigurer() {
-        return null;
-    }
+//
+//	@Bean
+//    public WebMvcConfigurer corsConfigurer() {
+//        return null;
+//    }
 
 	/*
 	 * 
